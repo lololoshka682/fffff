@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой сайт</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+        
+        .header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        .image-container {
+            margin: 30px auto;
+            max-width: 500px;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .greeting {
+            background-color: white;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+        
+        .greeting h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        
+        /* Стили для нижней картинки */
+        .bottom-image-container {
+            margin: 40px auto;
+            max-width: 400px;
+        }
+        
+        .bottom-image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border: 3px solid #2c3e50;
+        }
+        
+        .image-caption {
+            margin-top: 10px;
+            font-style: italic;
+            color: #666;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 id="siteTitle">Добро пожаловать на мой сайт!</h1>
+    </div>
+    
+    <div class="image-container">
+        <img id="mainImage" src="" alt="Основное изображение">
+    </div>
+    
+    <div class="greeting">
+        <h2 id="greetingText">Добро пожаловать!</h2>
+        <p id="greetingMessage">
+            Мы рады приветствовать вас на нашем сайте. Здесь вы найдете много интересной и полезной информации. 
+            Надеемся, что вам у нас понравится!
+        </p>
+    </div>
+
+    <!-- Контейнер для нижней картинки -->
+    <div class="bottom-image-container">
+        <img id="bottomImage" src="" alt="Дополнительное изображение">
+        <div class="image-caption" id="bottomImageCaption"></div>
+    </div>
+
+    <script>
+        // Установка названия сайта
+        document.getElementById('siteTitle').textContent = 'Кримперы';
+        
+        // Установка основного изображения
+        const imageElement = document.getElementById('mainImage');
+        imageElement.src = 'https://avatars.mds.yandex.net/get-mpic/5209949/img_id2587518218470434877.jpeg/orig';
+        imageElement.alt = 'Приветственное изображение';
+        
+        // Установка приветствия
+        document.getElementById('greetingText').textContent = 'Мы инициативная, юная и дружная команда из трёх человек под названием "Кримперы" и мы приветствуем вас на нашем сайте.';
+        document.getElementById('greetingMessage').textContent = "Наш девиз: Сжимаем проблемы — выпускаем решения.";
+        
+        // Установка нижней картинки
+        const bottomImageElement = document.getElementById('bottomImage');
+        bottomImageElement.src = 'https://i.pinimg.com/736x/8c/b6/1f/8cb61f5c432e146e4b9aad26cc5effbb.jpg'; // Замените на вашу картинку
+        bottomImageElement.alt = 'Наша команда в работе';
+        
+        // Подпись для нижней картинки (можно убрать, если не нужна)
+        document.getElementById('bottomImageCaption').textContent = '';
+        
+        // Анимация появления элементов
+        window.addEventListener('load', function() {
+            const elements = document.querySelectorAll('.header, .image-container, .greeting, .bottom-image-container');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(20px)';
+                    element.style.transition = 'all 0.5s ease';
+                    
+                    setTimeout(() => {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }, 100);
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
